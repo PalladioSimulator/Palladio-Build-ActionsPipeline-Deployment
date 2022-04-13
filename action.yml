@@ -1,0 +1,38 @@
+name: 'Palladio Build Deploy'
+description: 'Deployment of Palladio Project Build Artefacts'
+inputs:
+  remote-user:
+    description: 'Remote host user'
+    required: true
+    default: ''
+  remote-host:
+    description: 'Remote host ip'
+    required: true
+    default: ''
+  remote-port:
+    description: 'Remote host port'
+    required: true
+    default: ''
+  server-ssh-key: # 
+    description: 'SSH Key for deployment'
+    required: true
+    default: ''
+  local-source: # 
+    description: 'Updatesite for deployment. If empty deployment is skipped'
+    required: false
+    default: ''
+  remote-target:
+    description: 'Remote host target path'
+    required: true
+    default: ''
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.remote-user }} #1
+    - ${{ inputs.remote-host }} #2
+    - ${{ inputs.remote-port }} #3
+    - ${{ inputs.server-ssh-key }} #4
+    - ${{ inputs.local-source }} #5
+    - ${{ inputs.remote-target }} #6
