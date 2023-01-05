@@ -25,10 +25,10 @@ inputs:
     description: 'Remote host target path'
     required: true
     default: ''
-  release-deployment:
+  release-version:
     description: 'If release, latest link needs to be newly created.'
     required: false
-    default: false
+    default: '0.0.0'
   link-path:
     description: 'Path for the symbolic link to latest release.'
     required: false
@@ -44,5 +44,5 @@ runs:
     - ${{ inputs.server-ssh-key }} #4
     - ${{ inputs.local-source }} #5
     - ${{ inputs.remote-target }} #6
-    - ${{ inputs.release-deployment }} #7
+    - ${{ inputs.release-version }} #7
     - ${{ inputs.link-path }} #8
