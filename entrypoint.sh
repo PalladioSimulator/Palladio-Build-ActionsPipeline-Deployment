@@ -21,11 +21,10 @@ ssh -o StrictHostKeyChecking=no -p $3 -i $TEMP_SSH_PRIVATE_KEY_FILE $1@$2 rm -rf
 # Copy new files to folder
 sftp -b $TEMP_SFTP_FILE -P $3 -o ConnectTimeout=5 -o StrictHostKeyChecking=no -i $TEMP_SSH_PRIVATE_KEY_FILE $1@$2
 
-if [ $7 ]
+if [ $7 -ne '0.0.0' ]
 then
-  ssh -o StrictHostKeyChecking=no -p $3 -i $TEMP_SSH_PRIVATE_KEY_FILE $1@$2 ln -sf ./6.0.0 $8/releases/latest
+  ssh -o StrictHostKeyChecking=no -p $3 -i $TEMP_SSH_PRIVATE_KEY_FILE $1@$2 ln -sf ./$7 $8/releases/latest
 fi
 
 echo 'Deployment success'
 exit 0
-
