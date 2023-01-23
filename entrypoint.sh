@@ -24,7 +24,7 @@ sftp -b $TEMP_SFTP_FILE -P $3 -o ConnectTimeout=5 -o StrictHostKeyChecking=no -i
 echo 'Copying finished'
 
 echo 'Check for release'
-if [ $7 -ne '0.0.0' ]
+if [ $7 != '0.0.0' ]
 then
   echo 'Write latest release link'
   ssh -o StrictHostKeyChecking=no -p $3 -i $TEMP_SSH_PRIVATE_KEY_FILE $1@$2 ln -sf "$6" "$8/releases/latest"
