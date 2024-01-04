@@ -27,7 +27,7 @@ echo 'Check for release'
 if [ $7 != '0.0.0' ]
 then
   echo 'Write latest release link'
-  ssh -o StrictHostKeyChecking=no -p $3 -i $TEMP_SSH_PRIVATE_KEY_FILE $1@$2 ln -sf ./$7 $8/releases/latest
+  ssh -o StrictHostKeyChecking=no -p $3 -i $TEMP_SSH_PRIVATE_KEY_FILE $1@$2 ln -sf $6 $8/releases/latest
 fi
 
 echo 'Deployment success'
