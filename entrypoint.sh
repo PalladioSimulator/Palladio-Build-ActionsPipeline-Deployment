@@ -29,7 +29,7 @@ then
   echo 'Remove latest release link'
   ssh -o StrictHostKeyChecking=no -p $3 -i $TEMP_SSH_PRIVATE_KEY_FILE $1@$2 rm $8/releases/latest
   echo 'Create new latest release link'
-  ssh -o StrictHostKeyChecking=no -p $3 -i $TEMP_SSH_PRIVATE_KEY_FILE $1@$2 ln -sf $6 $8/releases/latest
+  ssh -o StrictHostKeyChecking=no -p $3 -i $TEMP_SSH_PRIVATE_KEY_FILE $1@$2 ln -sf ~/$6 $8/releases/latest
 fi
 
 echo 'Deployment success'
