@@ -1,4 +1,4 @@
-FROM alpine:3.20
+FROM alpine:3.21
 # Copies entrypoint.sh from action to '/' of the container
 COPY entrypoint.sh /entrypoint.sh
 #Make entrypoint.sh file executable:
